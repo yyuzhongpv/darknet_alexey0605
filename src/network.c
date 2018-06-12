@@ -443,8 +443,8 @@ int resize_network(network *net, int w, int h)
     }
 #ifdef GPU
     if(gpu_index >= 0){
-		printf(" try to allocate workspace = %zu * sizeof(float), ", (workspace_size - 1) / sizeof(float) + 1);
-        net->workspace = cuda_make_array(0, (workspace_size-1)/sizeof(float)+1);
+		printf(" try to allocate workspace = %zu * sizeof(float), ", workspace_size / sizeof(float) + 1);
+        net->workspace = cuda_make_array(0, workspace_size/sizeof(float) + 1);
 		printf(" CUDA allocate done! \n");
     }else {
         free(net->workspace);
@@ -491,6 +491,11 @@ image get_network_image_layer(network net, int i)
     }
     image def = {0};
     return def;
+}
+
+layer* get_network_layer(network* net, int i)
+{
+    return net->layers + i;
 }
 
 image get_network_image(network net)

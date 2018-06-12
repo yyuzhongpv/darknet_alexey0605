@@ -425,4 +425,5 @@ def performDetect(imagePath="data/dog.jpg", thresh= 0.25, configPath = "./cfg/yo
     return detections
 
 if __name__ == "__main__":
-    print(performDetect())
+    print(performDetect(showImage=False, configPath="/mnt/test/Jointbar-Inspection_WS/yolo.cfg", weightPath="/mnt/test/Jointbar-Inspection_WS/backup/yolo_10000.weights", metaPath="/mnt/test/Jointbar-Inspection_WS/yolo.data", imagePath="/home/yyuzhong/Jointbar-Inspection/0893201607112570_JB_JC.jpg"))
+    #print(performDetect())
